@@ -8,6 +8,7 @@ Next steps: I would like to:
 	a) Eliminate more French words from the search
 	b) Run the search to collate words from pages as well as the whole corpus
 	c) Run the plots/visuals.
-	d) I also have an 800+pages document of scans. I'm intimidated about doing the whole process again - cleaning up the pngs, extracting the text etc. After that, I feel confident in the TFIDF, but a bit nervous about doing the first part again.
+	d) Try topic modelling
+	e) I also have an 800+pages document of scans. I'm intimidated about doing the whole process again - cleaning up the pngs, extracting the text etc. After that, I feel confident in the TFIDF, but a bit nervous about doing the first part again.
 	
 	
