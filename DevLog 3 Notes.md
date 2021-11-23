@@ -11,4 +11,4 @@ So RStudio would not open. I cleared up memory, restarted the computer, and even
 
 WHAT WOULD IT BE LIKE FOR THINGS TO JUST WORK??? 
 
-
+Okay well I feel like it was two steps forward, ALL THE WAY BACK. I think I've completely eff'd up my RStudio. Can't get it running in either desktop or cloud version. Dr. Graham has been so helpful as well and I honestly feel like this whole project is just me going in circles.
