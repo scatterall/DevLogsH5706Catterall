@@ -9,11 +9,18 @@ I had a list of 500 popular French words - I'm going to try scrubbing even more.
 
 So RStudio would not open. I cleared up memory, restarted the computer, and eventually uninstalled and reinstalled it. After that, I could get it running. However, as I'm trying to run the TF-IDF tutorial, I'm now getting errors that there is no "Corpus" function, which is part of the "tm package", which I DID install (as part of the TFIDF code). So what did I screw up?
 
-WHAT WOULD IT BE LIKE FOR THINGS TO JUST WORK??? 
+### Code and Error message:
+> a <- Corpus(DirSource("TFIDF/"),
++             readerControl=list(language="lat")) #lat = latin characters
+Error in Corpus(DirSource("TFIDF/"), readerControl = list(language = "lat")) : 
+  could not find function "Corpus"
+> 
+
+### WHAT WOULD IT BE LIKE FOR THINGS TO JUST WORK??? 
 
 Okay well I feel like it was two steps forward, ALL THE WAY BACK. I think I've completely eff'd up my RStudio. Can't get it running in either desktop or cloud version. Dr. Graham has been so helpful as well and I honestly feel like this whole project is just me going in circles.
 
-## I blew up my RStudio; here is what I've done to try and troubleshoot so far.
+## November 24th: I blew up my RStudio; here is what I've done to try and troubleshoot so far.
 ### 1) Reviewed these sites/thread
       a) https://community.rstudio.com/t/cant-install-tm-help/47968 - re: why won't 'tm' install?
       b) https://datascience.stackexchange.com/questions/13759/getting-error-in-rstudio-while-loading-a-package-tm
