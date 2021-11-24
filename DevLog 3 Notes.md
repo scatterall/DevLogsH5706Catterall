@@ -18,6 +18,7 @@ Okay well I feel like it was two steps forward, ALL THE WAY BACK. I think I've c
       a) https://community.rstudio.com/t/cant-install-tm-help/47968 - re: why won't 'tm' install?
       b) https://datascience.stackexchange.com/questions/13759/getting-error-in-rstudio-while-loading-a-package-tm
       c) https://stackoverflow.com/questions/46056740/how-to-install-package-tm-in-r-3-3-0
+      d) https://support.rstudio.com/hc/en-us/articles/200554786-Problem-Installing-Packages-in-the-RStudio-IDE
 ### 2) I tried to install the packages on R, before installing them on R STudio. It looked they like installed fine, but I got the same error code when I tried it again in RSTudio. The code is below.
 > install.packages('tm')
 --- Please select a CRAN mirror for use in this session ---
