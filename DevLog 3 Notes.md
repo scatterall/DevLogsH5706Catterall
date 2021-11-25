@@ -224,3 +224,6 @@ just did the upload button here, selecting a zip file; nice how it uploads and a
 scatterall — Today at 12:17 PM
 BINGO
 no more error code.
+
+Okay, so I ran the whole TFIDF tutorial again and it all worked perfectly - except I got the same messed up plots, but that's not urgent.
+SO plan is to eat lunch, and then try with the French stopwords from Dr. Graham.
