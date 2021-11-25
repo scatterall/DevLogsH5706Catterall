@@ -227,3 +227,8 @@ no more error code.
 
 Okay, so I ran the whole TFIDF tutorial again and it all worked perfectly - except I got the same messed up plots, but that's not urgent.
 SO plan is to eat lunch, and then try with the French stopwords from Dr. Graham.
+
+## TODAY WAS A GOOD DAY!!
+Got the error codes all fixed. Ran the tutorial all the way through again (I'm not really sure how I can jump in partway through (Dr. Graham is explaining it now). And then I ran the French stopwords code and it worked perfectly. Cut my results down to 18000+. 
+
+So tomorrow - Topic modelling??
