@@ -108,3 +108,119 @@ I've been reading a bit about CRAN? I'm not sure I understand that - is it a rep
 In preparation for a meeting with Dr. Graham on Tuesday, I have downloaded TeamViewer.
 
 I'm wondering if the topic modelling code might work, even if the TF-IDF packages aren't downloading right now.
+
+## November 25th
+	1) Goals today: To a TF-IDF trial run using Rstudio.cloud
+	2) If that is successful, try to run the TF-IDF again, using Dr. Graham's French stopwords recommendation.
+	
+### RSTUDIO.CLOUD
+Okay - I've re-opened RStudio cloud and am realizing that the same issue exists there. Same error codes and everything.
+I've uploaded a ZIP file with all the .txt scans. I ran the code to do the INSTALL. and LIBRARY. and got an error code --> "Error in library(ggplot2) : there is no package called ‘ggplot2’." I also tried the CORPUS code again - same error.
+I'm throwing this one out to the Discord gang.
+
+OKAY WE MADE A BREAKTHROUGH
+scatterall — Today at 11:04 AM
+Hi friends - just want to throw this one out to the R/RStudio/TF-IDF experts. My R Studio crashed a few days ago - I got an error message re: "incomplete/damaged" etc. Over a day and a bit, I tried rebooting, clearing up storage, and nothing. I eventually uninstalled and reinstalled R Studio (I didn't touch R, as far as I know). The software opened like a charm after, but I am now getting error codes as I try and move through the TF-IDF code. IE when I try and enter the following code:
+a <- Corpus(DirSource("data/"),
+            readerControl=list(language="lat")) #lat = latin characters
+I get the following error message: Error in Corpus(DirSource("TFIDFzip/"), readerControl = list(language = "lat")) : 
+  could not find function "Corpus"
+
+This is an example of similar error codes, which I think have to do with problems downloading packages like tm, tidyverse, ggplot2 etc.
+I'm trying it on Rstudio.cloud, and getting the same error code. Meeting Dr. Graham on Friday, but am wondering if anyone else has any thoughts? I'm assuming that, in my uninstallation, I uninstalled something I shouldn't have. Thanks all!
+drgraham — Today at 11:08 AM
+try install.packages(tm) wait, you say you get the same error in Rstudio.cloud? 
+scatterall — Today at 11:12 AM
+Yes
+drgraham — Today at 11:46 AM
+...off to investigate...
+so, using Rstudio.cloud, i brought this zip file into the environment: https://graddh.netlify.app/data/data-for-tf-idf.zip by selecting the 'terminal' option....
+
+and then used 'wget' and 'unzip' to get the materials...
+scatterall — Today at 11:53 AM
+aaaaah intresting, I uploaded a Zipfile using the Uploads under Files...
+drgraham — Today at 11:53 AM
+
+...which is one way; yes, you can use the uploads thing...
+and then....
+have to install the packages that I then call with the library() command....
+including install.packages('topicmodels')
+and then I run the code... and get the error you got, but then I fix that...
+
+so library(tm) is the package that contains the Corpus function.
+scatterall — Today at 11:57 AM
+Okay so then are you installing/running library(tm) twice? It's included in that first piece of code for TF-IDF:
+install.packages('tm')
+install.packages('tidyverse')
+install.packages('tidytext')
+install.packages('magrittr')
+install.packages('ggplot2')
+
+library(tm)
+library(tidyverse)
+library(tidytext)
+library(magrittr)
+library(ggplot2)
+
+So do you install it here, and then again?
+drgraham — Today at 11:58 AM
+when I started Rstudio.cloud there was a warning that they'd updated the base R, so I install everything I need, then with the library command I tell R Studio I'm going to use those packages.
+scatterall — Today at 11:59 AM
+Okay. I guess I'm wondering if I'm telling library twice - once for that initial install of everything I need, and then again after the corpus error code. I'll give it a run right now. I may have missed a step with the wget/unzip?
+drgraham — Today at 12:00 PM
+no you're not
+I'm still not clear what you mean by 'telling library twice'
+scatterall — Today at 12:02 PM
+I might be getting confused. I'm going to try and run it as you suggested.
+drgraham — Today at 12:04 PM
+i restarted my project in R Studio, and instead of installing from the console or from a script, I'm using the 'install' button under 'packages' in the bottom right window. You might try that.
+scatterall — Today at 12:05 PM
+Okay, I'll try that after. I did try it yesterday, and didn't have luck. It was asking about CRAN? I was trying to do some reading on that.
+drgraham — Today at 12:06 PM
+CRAN is a repository for R packages; that's where the 'install.packages' command looks first. If you use the install button, it will ask you if you want to use CRAN or somewhere else. 9.9/10, CRAN's what you want.
+scatterall — Today at 12:07 PM
+Okay. So an improvement and a new error code. No longer says ERROR for Corpus, but that my directory is empty. I think I missed a step with the wget/unzip
+drgraham — Today at 12:08 PM
+interesting. I'm getting an error libicui18n.so.55: cannot open shared object file: No such file or directory which is related to the underlying operating system
+drgraham — Today at 12:08 PM
+what did you try to wget?
+scatterall — Today at 12:09 PM
+I didn't at all, I did a manual upload of the zip file
+drgraham — Today at 12:09 PM
+ok, so if you do that, then you have to make sure DirSource("path/to/folder/" is correct
+you didn't wget/unzip at all! 😉
+where's that damned file-upload thingy....
+scatterall — Today at 12:11 PM
+So I can wget files from my own device? Not only for web?
+When I clik on the file (and it's set as my wd), I see all the .txt files there.
+drgraham — Today at 12:12 PM
+can you show me a screenshot of what you are clicking on to upload your files
+ah shit, ok i see it
+scatterall — Today at 12:13 PM
+So I used the Upload tab you see here under Files, and you can see the TDIDFzip, and the beginning of the contents of the file. 
+
+drgraham — Today at 12:13 PM
+ok, and what does your Corpus command say
+scatterall — Today at 12:14 PM
+Error in DirSource("TFIDFzip/") : empty directory
+drgraham — Today at 12:14 PM
+no, what is the actual code you're running
+scatterall — Today at 12:15 PM
+a <- Corpus(DirSource("TFIDFzip/"),
+            readerControl=list(language="lat")) #lat = latin characters
+drgraham — Today at 12:15 PM
+also, when you run getwd() what does it say
+scatterall — Today at 12:15 PM
+getwd()
+[1] "/cloud/project/TFIDFzip"
+drgraham — Today at 12:15 PM
+that's why you're getting an error
+you're already in TFIDFzip, but you're telling your machine that the data is in a subfolder of that folder.
+change your wd to setwd("/cloud/project/")
+scatterall — Today at 12:16 PM
+Ah, I've made this mistake before
+drgraham — Today at 12:17 PM
+just did the upload button here, selecting a zip file; nice how it uploads and automatically unzips the folder.
+scatterall — Today at 12:17 PM
+BINGO
+no more error code.
