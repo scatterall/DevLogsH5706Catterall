@@ -232,3 +232,18 @@ SO plan is to eat lunch, and then try with the French stopwords from Dr. Graham.
 Got the error codes all fixed. Ran the tutorial all the way through again (I'm not really sure how I can jump in partway through (Dr. Graham is explaining it now). And then I ran the French stopwords code and it worked perfectly. Cut my results down to 18000+. 
 
 So tomorrow - Topic modelling??
+
+## Nov 27
+First of all - helping Danielle troubleshoot some TFIDF issues she's having. When she runs the code data_words <- tidy_data %>%
+  count(source, word, sort = TRUE), she gets the error Must group by variables found in .data.
+* Column source is not found.
+So she sent me her tidy_data file, and there is only one column - "word", but no "source". So trying to backtrack and see where it went missing.
+Around df <- data.frame(text = get("content", a))
+write.csv(df, "data.csv"), the sources disappear from her outputs (ie the .txt files).
+Okay when she ran data <- read_csv("data.csv")
+data <- tibble(source = data$X1, text = data$text), she didn't change "$X1" to the actual title of her column, which is "$...1". This has happened to me SOOO many times
+The trick was to delete the old data.csv file and re-run the code, being sure to change the column title from the tutorial's code to the actual title of the column in her data.csv file.
+
+It worked for her! EEEEEEP. I actually helped someone with CODE!!! WHAT THE EFF??
+
+Next up - topic modelling, using Dr. Graham's adapted script.
