@@ -247,3 +247,7 @@ The trick was to delete the old data.csv file and re-run the code, being sure to
 It worked for her! EEEEEEP. I actually helped someone with CODE!!! WHAT THE EFF??
 
 Next up - topic modelling, using Dr. Graham's adapted script.
+
+## Nov 28
+Okay - trying to do the topic modelling. I need to generate the sc_data.csv file that Dr. Graham created, which now organizes by DATE SENT. I've read through his instructions many times on how to do this. I have the TFIDF.csv file but I don't have the .csv of the day-sent.csv. And I can't really find the code that tells me how to generate this. I DO, however, have the DATES-IN-DOC.txt files, so I'm going to see if I can convert this into the .csv.
+Except! I am noticing that my first_step_for_metadata.csv contains the same content as the day_sent.csv but without the duplicates. So what happens if I run THIS .csv file, instead of the DATES-IN-DOC.txt. - Okay no, I can't do that. The duplicate dates contain different content.
