@@ -251,3 +251,15 @@ Next up - topic modelling, using Dr. Graham's adapted script.
 ## Nov 28
 Okay - trying to do the topic modelling. I need to generate the sc_data.csv file that Dr. Graham created, which now organizes by DATE SENT. I've read through his instructions many times on how to do this. I have the TFIDF.csv file but I don't have the .csv of the day-sent.csv. And I can't really find the code that tells me how to generate this. I DO, however, have the DATES-IN-DOC.txt files, so I'm going to see if I can convert this into the .csv.
 Except! I am noticing that my first_step_for_metadata.csv contains the same content as the day_sent.csv but without the duplicates. So what happens if I run THIS .csv file, instead of the DATES-IN-DOC.txt. - Okay no, I can't do that. The duplicate dates contain different content.
+
+### Email I sent to Dr. Graham about the issue:
+Hi Dr. Graham - I'm getting a bit stumped, and it has to do with the day-sent.csv file. To create the sc_data.csv, I have to merge the day-sent.csv with the TFIDF.csv. I have the latter file, but I'm a bit unsure as to how to create the day-sent.csv. I'm reading through the Discord chat, and you mentioned you created it using something called a regex? 
+
+When I cross-reference the day-sent.csv with the first_step_for_metadata.csv you asked me to create, the document looks similar but the first_step_for_metadata does not include any repeating dates. When I cross-reference the day-sent.csv with the DATES-IN-DOC.txt file, I DO see the same structure (ie repeating dates, such as 
+out_individual-pg-1.png-ocr.txt:Sent: May-22-19 2:00 PM
+out_individual-pg-1.png-ocr.txt:Sent: May-22-19 1:43 PM.
+
+So it seems as though I should be converting this .txt file to generate the day-sent.csv. I'm a bit thrown, however, because DATES-IN-DOC github contains TWO text files - one is more-dates.txt.
+
+I think I can figure this out - I have such close variations of the data! I'm just a bit unsure about the regex process.
+Best,
