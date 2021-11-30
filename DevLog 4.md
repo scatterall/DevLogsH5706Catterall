@@ -17,3 +17,13 @@ See script - it worked perfectly. I just had to make sure I edited the code to m
 dtm <- sc_words %>%
   cast_dtm(id, word, n) - error code: Error in loadNamespace(x) : there is no package called ‘tm’
 So, trying to fix. Ran install.packages('tm') and library. Fixed the error code.
+
+> topic_proportion_per_day <- aggregate(theta, by = list(day = sc_df$day), mean)
+Error in aggregate.data.frame(as.data.frame(x), ...) : 
+  arguments must have same length
+> 
+> colnames(topic_proportion_per_day)[2:(K+1)] <- topicNames
+Error in colnames(topic_proportion_per_day)[2:(K + 1)] <- topicNames : 
+  object 'topic_proportion_per_day' not found
+  
+  I imagine that I am not inputting something I should be - there's probably a value missing?
