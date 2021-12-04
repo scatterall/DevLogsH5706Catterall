@@ -27,3 +27,27 @@ Error in colnames(topic_proportion_per_day)[2:(K + 1)] <- topicNames :
   object 'topic_proportion_per_day' not found
   
   I imagine that I am not inputting something I should be - there's probably a value missing?
+
+## Dec 4
+Okay - running the NEW topic modelling code from DrSG to remove French words.
+Just ran: 
+sc_df$text = removeWords(sc_df$text, stopwords("french"))
+
+#turn sc_df into tidy format
+# use `View(sc_df)` to see the difference
+# from the previous table
+
+But I don't see the difference. There were 202 entries before and after.
+
+tidy_sc <- sc_df %>%
+  unnest_tokens(word, text) - this resulted in 59000+ responses
+  
+tidy_sc <- tidy_sc %>%
+  anti_join(stop_words) - this reduced it to 29000+ responses
+  
+sc_words <- tidy_sc %>%
+  count(id, word, sort = TRUE) - this reduced it to 18000+
+  
+  # take a look at what you've just done
+# by examining the first few lines of `cb_words` - when I run cb_words or View(cb_words), I get an error code (not found).
+
